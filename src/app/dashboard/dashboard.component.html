@@ -1,0 +1,52 @@
+<header>
+    <div class="display">
+        <h1 class="mainTitle">Recepción activa</h1>
+    </div>
+    <div class="display">
+        <h3 *ngIf='loggedUser'>Login User: {{loggedUser}}</h3>
+    </div>
+</header>
+<div class="container" *ngIf='!contacts && !loading'>
+    <button type="button" (click)='onLogin();' class='login-btn'>Log In</button>
+</div>
+<div class="container center" *ngIf='loading'>
+    <div class="loader"></div>
+</div>
+<div class="content">
+    <ul class="contacts">
+        <li *ngFor="let val of contacts" (click)="onSelect(val)" [class.selected]="val === selectedContact">
+            {{val.FirstName}} {{val.LastName}}
+        </li>
+    </ul>
+    <app-contact-details [contact]="selectedContact"></app-contact-details>
+</div>
+
+
+<!-- <div id="signin">
+	<div class="form-title">Recepción activa</div>
+	<div style="color:white; font-size:1.2em; text-align:center">
+        <span *ngIf='!contacts && !loading;else redireccionando'>
+            Pulsa el botón de <i>Login</i> para accede a la aplicación.
+        </span>
+    </div>
+    <ng-template #redireccionando>
+        Redireccionando a la aplicación...
+    </ng-template>    
+    <!-- <button class="login">Login</button> -->
+    <!--
+    <div *ngIf='!contacts && !loading'>
+        <button type="button" (click)='onLogin();' class='login'>Login</button>
+    </div>
+    <div *ngIf='loading'>
+        <div class="loader"></div>
+    </div>
+	<div class="check">
+		<i class="material-icons">check</i>
+	</div>
+</div> -->
+
+<!-- <div id="gif">
+	<a href="https://dribbble.com/shots/2197140-New-Material-Text-Fields">
+		<img src="https://d13yacurqjgara.cloudfront.net/users/472930/screenshots/2197140/efsdfsdae.gif" alt="">
+	</a>
+</div> -->
