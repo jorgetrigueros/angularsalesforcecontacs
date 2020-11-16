@@ -13,12 +13,20 @@
     <div class="loader"></div>
 </div>
 <div class="content">
-    <ul class="contacts">
-        <li *ngFor="let val of contacts" (click)="onSelect(val)" [class.selected]="val === selectedContact">
-            {{val.FirstName}} {{val.LastName}}
-        </li>
-    </ul>
-    <app-contact-details [contact]="selectedContact"></app-contact-details>
+    <table>
+        <tr>
+            <td>
+                <ul class="contacts">
+                    <li *ngFor="let val of contacts" (click)="onSelect(val)" [class.selected]="val === selectedContact">
+                        {{val.FirstName}} {{val.LastName}}
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <app-contact-details [contact]="selectedContact"></app-contact-details>
+            </td>
+        </tr>
+    </table>
 </div>
 
 
